@@ -33,7 +33,7 @@ get outside, have fun, and get active!
 - Login - Register and login users. Credentials securely stored in database. Can't redeem code unless authenticated.
 - WebSocket - As each user redeems codes and earns points, their updated points are reflected on the leaderboards for all 8. other users.
 - React - Application ported to use the react framework
-- 
+  
 ---
 ## Design Images
 ![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.08.50%20AM.png?version%3D1695453170257)
