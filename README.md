@@ -3,8 +3,7 @@
 ## Elevator Pitch
 
 Have you ever wanted to do a treasure hunt? Ok but like, not a lame one? One where you have to decipher cryptic messages, or maybe do some serious land navigation?
-Then "Pirates of the Cul-de-sac" is right up your alley! Make an account and then pick from a number of different treasure hunts. Depending on the treasure hunt, 
-there wil be a picture, or a series of crytpic messages that lead to it. Don't worry, there will be some really easy ones for the beginners to get their feet wet. 
+Then "Pirates of the Cul-de-sac" is right up your alley! Make an account and then pick from a number of different treasure hunts. Each treasure hunt will have a few pictures, and a series of crytpic messages that lead to it. Don't worry, there will be some really easy ones for the beginners to get their feet wet. 
 Upon discovery the winner will find a code that they will use to prove that they in fact found it. Upon redeeming the code, you will recieve an alotment of points 
 relative to the difficulty of that hunt. There will be a leaderboard for the "Pirates" with the most points. It's a great date idea, and also just a great way to 
 get outside, have fun, and get active!
