@@ -36,10 +36,10 @@ get outside, have fun, and get active!
   
 ---
 ## Design Images
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.08.50%20AM.png?version%3D1695453170257)
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.09.14%20AM.png?version%3D1695453223057)
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.11.03%20AM.png?version%3D1695453326148)
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.11.12%20AM.png?version%3D1695453372545)
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.10.12%20AM.png?version%3D1695453269349)
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.10.33%20AM.png?version%3D1695453286889)
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.10.46%20AM.png?version%3D1695453299061)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.24.23%20AM.png?version%3D1695453990902)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.24.29%20AM.png?version%3D1695454002072)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.25.00%20AM.png?version%3D1695454045491)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.25.05%20AM.png?version%3D1695454049992)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.24.38%20AM.png?version%3D1695454062832)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.24.44%20AM.png?version%3D1695454069299)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.24.49%20AM.png?version%3D1695454078641)
