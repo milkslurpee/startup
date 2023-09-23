@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Startup
 
 ## Elevator Pitch
@@ -32,3 +33,7 @@ get active!
 - WebSocket - As each user redeems codes and earns points, their updated points are reflected on the leaderboards for all 8. other users.
 - React - Application ported to use the react framework
 
+=======
+# startup
+(https://github.com/milkslurpee/startup/blob/main/notes.md)https://github.com/milkslurpee/startup/notes.md
+>>>>>>> 475caf716dbea59d76cfce4adb298efec5bade21
