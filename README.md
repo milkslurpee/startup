@@ -41,5 +41,5 @@ get outside, have fun, and get active!
 ![](Pics/ForgotPassword.png)
 ![](Pics/ResetPassword.png)
 ![](Pics/Menu.png)
-![](Pics/TresureHunt.png)
+![](Pics/TreasureHunt.png)
 ![](Pics/Leaderboard.png)
