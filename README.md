@@ -22,7 +22,7 @@ get outside, have fun, and get active!
 ---
 ## Technologies
 
-- HTML - To start there will be 7 HTML pages. One for the sign up, one for login, one for the menu with all the different treasure hunts (3 to start), one for each individual treasure hunt, and then one for the leaderboard.
+- HTML - To start there will be 9 HTML pages. One for the sign up, one for login, one for "forgot password", one for "reset password", one for the menu with all the different treasure hunts (3 to start), one for each individual treasure hunt, and then one for the leaderboard.
 - CSS - Application styling with a cool treasure hunting theme. Aesthetically pleasing.
 - JavaScript - Provides login, allows for redemption of codes, and displays each user's points on the leaderboard.
 - Service - Backend service with endpoints for:
@@ -33,3 +33,13 @@ get outside, have fun, and get active!
 - Login - Register and login users. Credentials securely stored in database. Can't redeem code unless authenticated.
 - WebSocket - As each user redeems codes and earns points, their updated points are reflected on the leaderboards for all 8. other users.
 - React - Application ported to use the react framework
+- 
+---
+## Design Images
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.08.50%20AM.png?version%3D1695453170257)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.09.14%20AM.png?version%3D1695453223057)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.11.03%20AM.png?version%3D1695453326148)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.11.12%20AM.png?version%3D1695453372545)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.10.12%20AM.png?version%3D1695453269349)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.10.33%20AM.png?version%3D1695453286889)
+![](https://file%2B.vscode-resource.vscode-cdn.net/Users/jacksuorsa/Documents/Homework/CS260/startup/Pics/Screenshot%202023-09-23%20at%201.10.46%20AM.png?version%3D1695453299061)
