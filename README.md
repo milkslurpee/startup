@@ -21,13 +21,27 @@ get active!
 ## Technologies
 
 - HTML - To start there will be 7 HTML pages. One for the sign up, one for login, one for the menu with all the different treasure hunts (3 to start), one for each individual treasure hunt, and then one for the leaderboard.
+
+
 - CSS - Application styling with a cool treasure hunting theme. Aesthetically pleasing.
+
+
 - JavaScript - Provides login, allows for redemption of codes, and displays each user's points on the leaderboard.
+
+
 - Service - Backend service with endpoints for:
     - login
     - redeeming codes for points
     - retrieving user points
+
+
 - DataBase - Store users and their number of points
+
+
 - Login - Register and login users. Credentials securely stored in database. Can't redeem code unless authenticated.
+
+
 - WebSocket - As each user redeems codes and earns points, their updated points are reflected on the leaderboards for all 8. other users.
+
+
 - React - Application ported to use the react framework
