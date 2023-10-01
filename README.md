@@ -34,6 +34,18 @@ get outside, have fun, and get active!
 - React - Application ported to use the react framework
   
 ---
+## HTML Deliverable
+
+For this Deliverable I built out the structure of my application in HTML.
+- **HTML pages** - 7 in all; One for the home page, one for each hunt (3), one for the leaderboard, one for login, and one for sign up.
+- **Links** - The home page links to each hunt, the leaderboard, sign up and log in pages. Links from every page back to the home page. You can also access the leaderboard from each individual hunt's page.
+- **Text** - Each hunt has a textual description of the clues leading to the "treasure".
+- **Images** - Each hunt has a picture of the general area where the treaure is hidden. There is also a pirate themes banner in the header of each page.
+- **Login & Sign up** - input boxes and submit buttons for both the sign up and login pages.
+- **Database** - Each user's points will be stored in the database and can be viewed from the leaderboard.
+- **WebSocket** - Redeeming codes on the client's side will add points to that user's account stored on the server. I think that's how WebSockets work, but I'm honestly not super sure.
+  
+---
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
