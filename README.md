@@ -21,7 +21,7 @@ get outside, have fun, and get active!
 ---
 ## Technologies
 
-- HTML - To start there will be 9 HTML pages. One for the sign up, one for login, one for "forgot password", one for "reset password", one for the menu with all the different treasure hunts (3 to start), one for each individual treasure hunt, and then one for the leaderboard.
+- HTML - To start there will be 7 HTML pages. One for the sign up, one for login, one for the menu with all the different treasure hunts (3 to start), one for each individual treasure hunt, and then one for the leaderboard.
 - CSS - Application styling with a cool treasure hunting theme. Aesthetically pleasing.
 - JavaScript - Provides login, allows for redemption of codes, and displays each user's points on the leaderboard.
 - Service - Backend service with endpoints for:
@@ -37,8 +37,6 @@ get outside, have fun, and get active!
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
-![](Pics/ForgotPassword.png)
-![](Pics/ResetPassword.png)
 ![](Pics/Menu.png)
 ![](Pics/TreasureHunt.png)
 ![](Pics/Leaderboard.png)
