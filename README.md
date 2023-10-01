@@ -38,7 +38,7 @@ get outside, have fun, and get active!
 
 For this Deliverable I built out the structure of my application in HTML.
 - **HTML pages** - 7 in all; One for the home page, one for each hunt (3), one for the leaderboard, one for login, and one for sign up.
-- **Links** - The home page links to each hunt, the leaderboard, sign up and log in pages. Links from every page back to the home page. You can also access the leaderboard from each individual hunt's page.
+- **Links** - The home page links to each hunt's page, the leaderboard, and the sign up and log in pages. Every other page links back to the home page. You can also access the leaderboard from each individual hunt's page.
 - **Text** - Each hunt has a textual description of the clues leading to the "treasure".
 - **Images** - Each hunt has a picture of the general area where the treaure is hidden. There is also a pirate themes banner in the header of each page.
 - **Login & Sign up** - input boxes and submit buttons for both the sign up and login pages.
