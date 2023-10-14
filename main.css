@@ -1,0 +1,33 @@
+* {
+    font-family: sans-serif;
+    color: white;
+  }
+
+  html {
+    background-color: #444;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+  }
+
+  .banner {
+    padding: 0em;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .picture {
+    position: relative;
+    text-align: center;
+    color: white;
+    opacity: 0.4;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
+  }
