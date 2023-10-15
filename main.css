@@ -1,33 +1,94 @@
-* {
-    font-family: sans-serif;
+  
+  body {
+    background-color: #555;
     color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  a {
+    color: #fff; /* Change 'your-color' to the color you want */
+    text-decoration: none; /* Remove underline on links (if desired) */
   }
 
-  html {
-    background-color: #444;
-    padding: 1em;
-    margin: 1em 0;
-    border-radius: 5px;
+  a:hover {
+    color: grey
   }
+  
 
   .banner {
-    padding: 0em;
     position: relative;
-    text-align: center;
-    color: white;
   }
-
-  .picture {
-    position: relative;
-    text-align: center;
-    color: white;
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+    display: block;
     opacity: 0.4;
   }
   
   .centered {
     position: absolute;
-    top: 35%;
-    left: 20%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: xx-large;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  
+  menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  menu h3 {
+    margin: 0;
+    padding: 10px;
+  }
+  
+  menu a {
+    text-decoration: none;
+    color: white;
+  }
+  
+ 
+  main {
+    padding: 20px;
+    text-align: left;
+  }
+  
+ 
+  main h2 {
+    font-size: 36px;
+  }
+  
+ 
+  main h3 {
+    margin: 15px;
+    
+  }
+  
+  .picture-box {
+    position: relative;
+  }
+  
+  .picture-box img {
+    width: 50%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+  }
+  
+
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+  
+
+  footer a {
+    color: #4CAF50;
+    text-decoration: none;
   }
