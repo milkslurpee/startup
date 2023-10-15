@@ -1,0 +1,100 @@
+  
+  body {
+    background-color: #555;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  a {
+    color: #fff; /* Change 'your-color' to the color you want */
+    text-decoration: none; /* Remove underline on links (if desired) */
+  }
+
+  a:hover {
+    color: grey
+  }
+  
+  h1 {
+    font-weight: 50;
+  }
+
+  .banner {
+    position: relative;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.4;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  
+  menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  menu h3 {
+    margin: 0;
+    padding: 10px;
+    font-weight: 50;
+  }
+  
+  menu a {
+    text-decoration: none;
+    margin: 15px;
+    color: white;
+  }
+  
+ 
+  main {
+    padding: 20px;
+    text-align: left;
+  }
+  
+ 
+  main h2 {
+    font-size: 36px;
+    font-weight: 50;
+  }
+  
+ 
+  main h3 {
+    margin: 15px;
+    font-weight: 50;
+  }
+  
+  .picture-box {
+    position: relative;
+  }
+  
+  .picture-box img {
+    width: 50%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+  }
+  
+
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+  
+
+  footer a {
+    color: #4CAF50;
+    text-decoration: none;
+  }

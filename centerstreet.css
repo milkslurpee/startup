@@ -9,11 +9,14 @@
     color: #fff; /* Change 'your-color' to the color you want */
     text-decoration: none; /* Remove underline on links (if desired) */
   }
-
+  
   a:hover {
     color: grey
   }
   
+  h1 {
+    font-weight: 50;
+  }
 
   .banner {
     position: relative;
@@ -28,10 +31,10 @@
   
   .centered {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 30%;
+    left: 30%;
     transform: translate(-50%, -50%);
-    font-size: 24px;
+    font-size: 40px;
     text-shadow: 2px 2px 4px #000;
   }
   
@@ -46,10 +49,12 @@
   menu h3 {
     margin: 0;
     padding: 10px;
+    font-weight: 50;
   }
   
   menu a {
     text-decoration: none;
+    margin: 15px;
     color: white;
   }
   
@@ -62,12 +67,13 @@
  
   main h2 {
     font-size: 36px;
+    font-weight: 50;
   }
   
  
   main h3 {
-    margin: 15px;
-    
+    margin: 0px;
+    font-weight: 50;
   }
   
   .picture-box {
@@ -92,3 +98,12 @@
     color: #4CAF50;
     text-decoration: none;
   }
+  label, input {
+    display: block;
+}
+
+/* Add some spacing between elements */
+label, input, button, p {
+    margin: 10px;
+}
+
