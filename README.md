@@ -46,6 +46,15 @@ For this Deliverable I built out the structure of my application in HTML.
 - **WebSocket** - Redeeming codes on the client's side will add points to that user's account stored on the server. I think that's how WebSockets work, but I'm honestly not super sure.
   
 ---
+## CSS Deliverable
+For this deliverable I properly styled the application into its final appearance.
+- **Header, footer, and main body content**
+- **Window Resizing** - I've tested the website on multiple window sizes, including my iphone 12 mini! And it looks good, or at least it looks as good as it is supposed to. :P
+- **Application elements** - It has good contrast, and I tried to make it look nice!
+- **Application text content** - Consistent fonts
+- **Application images** - Added some opacity to the header picture to boost contrast.
+  
+---
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
