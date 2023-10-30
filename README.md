@@ -23,7 +23,7 @@ get outside, have fun, and get active!
 
 - HTML - To start there will be 7 HTML pages. One for the sign up, one for login, one for the menu with all the different treasure hunts (3 to start), one for each individual treasure hunt, and then one for the leaderboard.
 - CSS - Application styling with a cool treasure hunting theme. Aesthetically pleasing.
-- JavaScript - Provides login, allows for redemption of codes, and displays each user's points on the leaderboard.
+- JavaScript - Provides signup, login, allows for redemption of codes, and displays each user's points on the leaderboard.
 - Service - Backend service with endpoints for:
     - login
     - redeeming codes for points
