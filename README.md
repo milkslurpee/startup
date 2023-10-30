@@ -61,6 +61,7 @@ For this deliverable I got as much JavaScript working as I think I possibly coul
 - **Login** - Checkes credentials to see if user exists, and if the user does exists, it logs them into their account.
 - **Redeeming Points** - Allows user to use codes to redeem points. The points are saved to the user's account, and each code can only be used once by the user.
 - **Leaderboard** - Displays the user by their user and their points on the leaderboard.
+- **Testing for TA's** - If you'd like to test point redemption. One of the codes is "347159". It should award you points which are visible on the leaderboard. :)
     
 ---
 ## Design Images
