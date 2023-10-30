@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <link rel="stylesheet" href="login.css" />
-  <script src = "login.js"></script>
   <head>
+    <script src="login.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="icon" href="plunderin-pirates.ico" />
+    <link rel="icon" href="plunderin-pirates.ico"/>
   </head>
   <body>
     <header>
@@ -25,16 +25,19 @@
     </header>
     <main>        
         <h3>Login</h3>
+        <form id="loginForm">
         <br>
         <label for="username">Username</label>
         <br>
-        <input type="text" id="code" placeholder="Username" />
+        <input type="text" id="username" placeholder="Username" />
         <br>
         <label for="password">Password</label>
         <br>
-        <input type="text" id="code" placeholder="Password" />
+        <input type="text" id="password" placeholder="Password" />
         <br>
-        <button type="submit">Login</button>
+        <button type="button" onclick="login()">Login</button>
+        </form>
+        <div id="message"></div>
         <br><br><br><br><br><br><br>
         <h4>Don't have an account? <a href="signup.html"><u>Sign up!</u></a></h4>
         <footer>
@@ -44,4 +47,4 @@
           <a href="https://github.com/milkslurpee/startup.git">GitHub</a>
         </footer>
     </main>
-    </html>
+  </html>
