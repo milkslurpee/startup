@@ -20,19 +20,16 @@ function login() {
     const loginForm = document.querySelector("#loginForm");
 
     if (username && password) {
-        // Retrieve existing users from local storage or initialize an empty array
         const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Check if the username already exists
         const foundUser = users.find(user => user.username === username);
 
         if (foundUser) {
-            // Check the password for the found user
             if (foundUser.password === password) {
-                // Successful login
+            
                 alert("Login successful!");
-                localStorage.setItem("currentUser", JSON.stringify(foundUser)); // Store current user in local storage
-                window.location.href = "index.html"; // Redirect to leaderboards page or any other page
+                localStorage.setItem("currentUser", JSON.stringify(foundUser)); 
+                window.location.href = "index.html"; 
             } else {
                 message.textContent = "Incorrect password. Please try again.";
                 loginForm.reset();

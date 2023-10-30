@@ -44,8 +44,7 @@ function signup() {
         const newUser = {
           username: newUsername,
           password: newPassword,
-          points: 0 // Initializing points for the new user
-          // You can add more properties as needed for the user
+          points: 0 
         };
   
         users.push(newUser);
