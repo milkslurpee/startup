@@ -33,3 +33,47 @@ The <div> tag is really versatile element used for creating divisions or section
     Grouping other elements
     Responsive elements
 
+port 443 is for HTTPS, port 80 is for HTTP, and port 22 is for SSH
+
+Command line arguments
+chmod: Changes permissions of a file or directory.
+pwd: Prints the current working directory.
+cd: Changes the current directory.
+ls: Lists files and directories in the current directory.
+vim and nano: Text editors in the terminal.
+mkdir: Creates a new directory.
+mv: Moves or renames files or directories.
+rm: Removes (deletes) files or directories.
+man: Displays the manual of a command.
+ssh: Connects to a remote server via Secure Shell.
+ps: Shows the currently running processes.
+wget: Downloads files from the web.
+sudo: Executes a command with elevated privileges.
+
+The -la parameter in ls shows a detailed list of all files, including hidden files, with permissions, ownership, and more information.
+
+A web certificate (SSL/TLS certificate) is required to enable HTTPS on a website, ensuring secure communication by encrypting data between the server and the client.
+
+A DNS A record maps a domain name to an IP address, and it can point directly to an IP address or to another A record, which ultimately resolves to an IP address.
+
+JSON is a lightweight data-interchange format that is easy for humans to read and write. It's based on JavaScript object syntax but is a text format independent of programming languages.
+
+Use the <script> tag to add JavaScript to an HTML file
+
+New properties can be added to JavaScript objects even after the object is created using dot notation or square brackets.
+
+<!DOCTYPE html> us used to declare a document as an HTML file
+
+HTML tags:
+Paragraph: <p>
+Ordered list: <ol>
+Unordered list: <ul>
+Second-level heading: <h2>
+First-level heading: <h1>
+Third-level heading: <h3>
+
+ To display an image with a hyperlink, use the <a> (anchor) tag to create a link and place the <img> tag inside it: <a href="URL"><img src="image.jpg" alt="Description"></a>.
+
+ The CSS rule to change the background color of all <div> elements to red is: div { background-color: red; }.
+
+ The map() method creates a new array by transforming each element in an existing array using a provided function. It's used for iterating through an array and creating a new array based on the function's logic.
