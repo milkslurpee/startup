@@ -55,6 +55,14 @@ For this deliverable I properly styled the application into its final appearance
 - **Application images** - Added some opacity to the header picture to boost contrast.
   
 ---
+## JavaScript Deliverable
+For this deliverable I got as much JavaScript working as I think I possibly could, though I'm not entirely sure.
+- **Signup** - Creates user and then takes them to login page to login.
+- **Login** - Checkes credentials to see if user exists, and if the user does exists, it logs them into their account.
+- **Redeeming Points** - Allows user to use codes to redeem points. The points are saved to the user's account, and each code can only be used once by the user.
+- **Leaderboard** - Displays the user by their user and their points on the leaderboard.
+    
+---
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
