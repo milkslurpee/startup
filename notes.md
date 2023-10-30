@@ -65,12 +65,12 @@ New properties can be added to JavaScript objects even after the object is creat
 <!DOCTYPE html> us used to declare a document as an HTML file
 
 HTML tags:
-Paragraph: <p></p>
-Ordered list: <ol></ol>
-Unordered list: <ul></ul>
-Second-level heading: <h2></h2>
-First-level heading: <h1></h1>
-Third-level heading: <h3></h3>
+Paragraph: "<p>"
+Ordered list: "<ol>"
+Unordered list: <ul>
+Second-level heading: "<h2>"
+First-level heading: "<h1>"
+Third-level heading: "<h3>"
 
  To display an image with a hyperlink, use the <a> (anchor) tag to create a link and place the <img> tag inside it: <a href="URL"><img src="image.jpg" alt="Description"></a>.
 
