@@ -1,3 +1,12 @@
+const scoresEndpoint = '/api/scores';
+
+function getScores() {
+  fetch(scoresEndpoint)
+    .then(response => response.json())
+    .then(scores => updateLeaderboard(scores))
+    .catch(error => console.error('Error fetching scores:', error));
+}
+
 function updateLeaderboard() {
     const users = JSON.parse(localStorage.getItem("users")) || [];
   
