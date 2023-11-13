@@ -64,6 +64,14 @@ For this deliverable I got as much JavaScript working as I think I possibly coul
 - **Testing for TA's** - If you'd like to test point redemption. You'll have to signup and login, then navigate to one of the treasure hunt pages and redeem a code at the bottom. It doesn't matter which hunt you pick, you can redeem any code from any of the pages. One of the codes is "347159". It should award you 10 points which will now be visible on the leaderboard. :)
     
 ---
+
+## Service Deliverable
+For this deliverable I added backend endpoints that receives signup info, login info, codes for point redemotion, and returns the top users' point values to the leaderboard.
+- **Node.js/Express HTTP service** - done!
+- **Static middleware for frontend** - done!
+- **Backend Service Endpoints** - I have Signup and Login working. I'm still figuring out code redemption.
+    
+---
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
