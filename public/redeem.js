@@ -9,6 +9,10 @@ function redeem() {
 
   const validCodes = [centerStreet, provoCanyon, provoTemple];
 
+  if(!code){
+    redeemMessage.textContent = "Please provide a redemption code."
+  }
+
   if (validCodes.includes(code)) {
       const userIndex = users.findIndex(user => user.username === currentUser.username);
 
