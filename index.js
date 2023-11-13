@@ -1,16 +1,16 @@
 const express = require('express');
 const app = express();
 
-// The service port. In production the front-end code is statically hosted by the service on the same port.
+
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
-// JSON body parsing using built-in middleware
+
 app.use(express.json());
 let redeemedCodes = [];
 let users = [];
 
 
-// Serve up the front-end static content hosting
+
 app.use(express.static('public'));
 
 app.post('/api/signup', (req, res) => {
@@ -43,7 +43,7 @@ app.post('/api/signup', (req, res) => {
   }
 });
 
-// Define an endpoint for user login
+
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
 
@@ -100,13 +100,11 @@ app.post('/api/redeem', (req, res) => {
   });
   
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
