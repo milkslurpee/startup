@@ -6,10 +6,12 @@ const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
+let redeemedCodes = [];
+let users = [];
+
 
 // Serve up the front-end static content hosting
 app.use(express.static('public'));
-
 
 app.post('/api/signup', (req, res) => {
   const { username, password, confirmPassword } = req.body;
@@ -19,8 +21,6 @@ app.post('/api/signup', (req, res) => {
       res.json({ success: false, message: 'Passwords do not match. Please re-enter.' });
       return;
     }
-
-    const users = retrieveUsersFromDatabase();
 
     const existingUser = users.find(user => user.username === username);
 
@@ -48,7 +48,6 @@ app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
 
   if (username && password) {
-    const users = retrieveUsersFromDatabase();
 
     const foundUser = users.find(user => user.username === username);
 
@@ -66,39 +65,40 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-// Define an endpoint for code redemption
 app.post('/api/redeem', (req, res) => {
-  const { code } = req.body;
-  const currentUser = req.user;
-
-  if (!code) {
-    return res.json({ success: false, message: 'Please provide a redemption code.' });
-  }
-
-  const validCodes = ['102956', '347159', '650535'];
-
-  if (validCodes.includes(code)) {
-    if (!currentUser) {
-      return res.json({ success: false, message: 'User not found.' });
+    const { code } = req.body;
+    const currentUser = req.user; // Assuming you have user authentication middleware
+  
+    if (!code) {
+      return res.json({ success: false, message: 'Please provide a redemption code.' });
     }
-
-    if (!currentUser.redeemedCodes) {
-      currentUser.redeemedCodes = [];
+  
+    const validCodes = ['102956', '347159', '650535'];
+  
+    if (validCodes.includes(code)) {
+      if (!currentUser) {
+        return res.json({ success: false, message: 'User not found.' });
+      }
+  
+      if (redeemedCodes.includes(code)) {
+        return res.json({ success: false, message: 'Code already redeemed.' });
+      }
+  
+      redeemedCodes.push(code);
+  
+      if (!currentUser.redeemedCodes) {
+        currentUser.redeemedCodes = [];
+      }
+  
+      currentUser.points += 10;
+      currentUser.redeemedCodes.push(code);
+  
+      return res.json({ success: true, message: 'Points redeemed successfully!', user: currentUser });
+    } else {
+      return res.json({ success: false, message: 'Invalid redemption code.' });
     }
-
-    if (currentUser.redeemedCodes.includes(code)) {
-      return res.json({ success: false, message: 'Code already redeemed.' });
-    }
-
-    currentUser.points += 10;
-    currentUser.redeemedCodes.push(code);
-    updateDatabaseWithRedeemedCode(currentUser);
-
-    return res.json({ success: true, message: 'Points redeemed successfully!', user: currentUser });
-  } else {
-    return res.json({ success: false, message: 'Invalid redemption code.' });
-  }
-});
+  });
+  
 
 // Error handling middleware
 app.use((err, req, res, next) => {
