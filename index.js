@@ -71,11 +71,10 @@ app.post('/api/login', (req, res) => {
 
   if (username && password) {
 
-    const foundUser = users.find(user => user.username === username);
+    const authenticatedUser = authenticateUser(username, password);
 
     if (foundUser) {
       if (foundUser.password === password) {
-        const authenticatedUser = foundUser;
         req.session.user = authenticatedUser; 
         res.json({ success: true, message: 'Login successful!', user: authenticatedUser });
       } else {
