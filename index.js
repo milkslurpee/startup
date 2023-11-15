@@ -67,7 +67,6 @@ app.post('/api/login', (req, res) => {
 
 app.post('/api/redeem', (req, res) => {
     const { code } = req.body;
-    const currentUser = req.user; // Assuming you have user authentication middleware
   
     if (!code) {
       return res.json({ success: false, message: 'Please provide a redemption code.' });
@@ -76,9 +75,6 @@ app.post('/api/redeem', (req, res) => {
     const validCodes = ['102956', '347159', '650535'];
   
     if (validCodes.includes(code)) {
-      if (!currentUser) {
-        return res.json({ success: false, message: 'User not found.' });
-      }
   
       if (redeemedCodes.includes(code)) {
         return res.json({ success: false, message: 'Code already redeemed.' });

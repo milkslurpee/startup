@@ -35,12 +35,9 @@ function redeem() {
   }
   
   function handleRedemptionResponse(responseData, redeemMessage) {
-    // Handle the response from the server
     if (responseData.success) {
-      // Update the client-side UI or perform any additional actions if needed
       redeemMessage.textContent = responseData.message;
     } else {
-      // Display an error message to the user
       redeemMessage.textContent = responseData.message;
     }
   }
