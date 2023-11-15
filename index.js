@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
+const MemoryStore = require('memorystore')(session);
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -14,12 +15,14 @@ app.use(
     secret: 'J$986587muncy',
     resave: false,
     saveUninitialized: true,
+    store: new MemoryStore({
+      checkPeriod: 86400000,
+    }),
   })
 );
 
 function authenticateUser(req, res, next) {
-  const user = req.session.user;
-
+  const user = req.session;
   if (user) {
     req.user = user;
     next();
@@ -73,8 +76,8 @@ app.post('/api/login', (req, res) => {
 
     const authenticatedUser = authenticateUser(username, password);
 
-    if (foundUser) {
-      if (foundUser.password === password) {
+    if (authenticatedUser) {
+      if (authenticatedUser.password === password) {
         req.session.user = authenticatedUser; 
         res.json({ success: true, message: 'Login successful!', user: authenticatedUser });
       } else {
@@ -88,15 +91,6 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-function authenticateUser(req, res, next) {
-  const { user } = req.session;
-  if (user) {
-    req.user = user;
-    next();
-  } else {
-    res.status(401).json({ success: false, message: 'Unauthorized' });
-  }
-}
 
 app.post('/api/redeem', authenticateUser, (req, res) => {
     const { code } = req.body;
