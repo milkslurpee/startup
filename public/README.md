@@ -69,8 +69,8 @@ For this deliverable I got as much JavaScript working as I think I possibly coul
 For this deliverable I added backend endpoints that receives signup info, login info, codes for point redemotion, and returns the top users' point values to the leaderboard.
 - **Node.js/Express HTTP service** - done!
 - **Static middleware for frontend** - done!
-- **Backend Service Endpoints** - I have Signup and Login working. I'm still working on code redemption.
-- **Frontend calls to Endpoints** - Mostly done, still working on Redeem.
+- **Backend Service Endpoints** - Backend endpoints for signup, login, point redemption, and updating leaderboard.
+- **Frontend calls to Endpoints** - Yup, done using "fetch".
     
 ---
 ## Design Images

@@ -5,7 +5,6 @@ function login() {
     const loginForm = document.querySelector("#loginForm");
 
     if (username && password) {
-        // Make a POST request to your server's login endpoint
         fetch('/api/login', {
             method: 'POST',
             headers: {

@@ -48,7 +48,7 @@ app.post('/api/signup', (req, res) => {
     if (existingUser) {
       res.json({ success: false, message: 'Username already exists. Please choose a different one.' });
     } else {
-      const userId = generateUserId(); // Generating a unique userId
+      const userId = generateUserId(); 
       const newUser = {
         userId,
         username,
@@ -76,7 +76,7 @@ app.post('/api/login', (req, res) => {
   const foundUser = users.find(user => user.username === username && user.password === password);
 
   if (foundUser) {
-    req.session.userId = foundUser.userId; // Store userId in session
+    req.session.userId = foundUser.userId; 
     res.json({ success: true, message: 'Login successful!', user: foundUser });
   } else {
     res.json({ success: false, message: 'Incorrect username or password.' });
