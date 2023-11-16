@@ -115,7 +115,7 @@ app.post('/api/redeem', (req, res) => {
   } else {
     return res.json({ success: false, message: 'Invalid redemption code.' });
   }
-});x
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
