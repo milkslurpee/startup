@@ -3,30 +3,23 @@ function login() {
     const password = document.querySelector("#password").value;
     const message = document.querySelector("#message");
     const loginForm = document.querySelector("#loginForm");
-
-    if (username && password) {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-
-        const foundUser = users.find(user => user.username === username);
-
-        if (foundUser) {
-            if (foundUser.password === password) {
-            
+        // Make a POST request to your server's login endpoint
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
                 alert("Login successful!");
-                localStorage.setItem("currentUser", JSON.stringify(foundUser)); 
-                window.location.href = "index.html"; 
+                window.location.href = "index.html";
             } else {
-                message.textContent = "Incorrect password. Please try again.";
+                message.textContent = data.message;
                 loginForm.reset();
             }
-        } else {
-            message.textContent = "User not found. Please sign up.";
-            loginForm.reset();
-        }
-    } else {
-        message.textContent = "Please enter both username and password.";
-        loginForm.reset();
+        })
+        .catch(error => console.error('Error during login:', error));
     }
-}
-
-

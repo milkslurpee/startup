@@ -1,9 +1,10 @@
 const express = require('express');
 const session = require('express-session');
 const app = express();
-const MemoryStore = require('memorystore')(session);
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
+
+const currentUser = null;
 
 
 app.use(express.json());
@@ -15,14 +16,12 @@ app.use(
     secret: 'J$986587muncy',
     resave: false,
     saveUninitialized: true,
-    store: new MemoryStore({
-      checkPeriod: 86400000,
-    }),
   })
 );
 
 function authenticateUser(req, res, next) {
   const user = req.session.user;
+
   if (user) {
     req.user = user;
     next();
@@ -52,10 +51,7 @@ app.post('/api/signup', (req, res) => {
         password,
         points: 0,
       };
-
       users.push(newUser);
-      updateDatabaseWithNewUser(users);
-
       res.json({ success: true, message: 'Sign up successful! Please log in with your new credentials.' });
     }
   } else {
@@ -74,12 +70,14 @@ app.post('/api/login', (req, res) => {
 
   if (username && password) {
 
-    const authenticatedUser = authenticateUser(username, password);
+    // currentUser = { username, password};
+    // req.session.user = currentUser;
+    
+    const foundUser = users.find(user => user.username === username);
 
-    if (authenticatedUser) {
-      if (authenticatedUser.password === password) {
-        req.session.user = authenticatedUser; 
-        res.json({ success: true, message: 'Login successful!', user: authenticatedUser });
+    if (foundUser) {
+      if (foundUser.password === password) {
+        res.json({ success: true, message: 'Login successful!', user: foundUser });
       } else {
         res.json({ success: false, message: 'Incorrect password. Please try again.' });
       }
@@ -92,37 +90,35 @@ app.post('/api/login', (req, res) => {
 });
 
 
-app.post('/api/redeem', authenticateUser, (req, res) => {
-    const { code } = req.body;
-    currentUser = req.user;
-  
-    if (!code) {
-      return res.json({ success: false, message: 'Please provide a redemption code.' });
+app.post('/api/redeem', (req, res) => {
+  const { code } = req.body;
+
+  if (!code) {
+    return res.json({ success: false, message: 'Please provide a redemption code.' });
+  }
+
+  const validCodes = ['102956', '347159', '650535'];
+
+  if (validCodes.includes(code)) {
+
+    if (redeemedCodes.includes(code)) {
+      return res.json({ success: false, message: 'Code already redeemed.' });
     }
-  
-    const validCodes = ['102956', '347159', '650535'];
-  
-    if (validCodes.includes(code)) {
-  
-      if (redeemedCodes.includes(code)) {
-        return res.json({ success: false, message: 'Code already redeemed.' });
-      }
-  
-      redeemedCodes.push(code);
-  
-      if (!currentUser.redeemedCodes) {
-        currentUser.redeemedCodes = [];
-      }
-  
-      currentUser.points += 10;
-      currentUser.redeemedCodes.push(code);
-  
-      return res.json({ success: true, message: 'Points redeemed successfully!', user: currentUser });
-    } else {
-      return res.json({ success: false, message: 'Invalid redemption code.' });
+
+    redeemedCodes.push(code);
+
+    if (!currentUser.redeemedCodes) {
+      currentUser.redeemedCodes = [];
     }
-  });
-  
+
+    currentUser.points += 10;
+    currentUser.redeemedCodes.push(code);
+
+    return res.json({ success: true, message: 'Points redeemed successfully!', user: currentUser });
+  } else {
+    return res.json({ success: false, message: 'Invalid redemption code.' });
+  }
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
