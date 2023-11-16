@@ -3,8 +3,6 @@ function login() {
     const password = document.querySelector("#password").value;
     const message = document.querySelector("#message");
     const loginForm = document.querySelector("#loginForm");
-
-    if (username && password) {
         // Make a POST request to your server's login endpoint
         fetch('/api/login', {
             method: 'POST',
@@ -24,8 +22,4 @@ function login() {
             }
         })
         .catch(error => console.error('Error during login:', error));
-    } else {
-        message.textContent = "Please enter both username and password.";
-        loginForm.reset();
     }
-}

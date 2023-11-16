@@ -4,6 +4,8 @@ const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
+const currentUser = null;
+
 
 app.use(express.json());
 let redeemedCodes = [];
@@ -13,7 +15,7 @@ app.use(
   session({
     secret: 'J$986587muncy',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
   })
 );
 
@@ -30,10 +32,6 @@ function authenticateUser(req, res, next) {
 
 app.use(express.static('public'));
 
-function generateUserId() {
-  return '_' + Math.random().toString(36).substr(2, 9);
-}
-
 app.post('/api/signup', (req, res) => {
   const { username, password, confirmPassword } = req.body;
 
@@ -48,13 +46,10 @@ app.post('/api/signup', (req, res) => {
     if (existingUser) {
       res.json({ success: false, message: 'Username already exists. Please choose a different one.' });
     } else {
-      const userId = generateUserId(); // Generating a unique userId
       const newUser = {
-        userId,
         username,
         password,
         points: 0,
-        redeemedCodes: [],
       };
       users.push(newUser);
       res.json({ success: true, message: 'Sign up successful! Please log in with your new credentials.' });
@@ -73,28 +68,30 @@ app.get('/api/scores', (req, res) => {
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
 
-  const foundUser = users.find(user => user.username === username && user.password === password);
+  if (username && password) {
 
-  if (foundUser) {
-    req.session.userId = foundUser.userId; // Store userId in session
-    res.json({ success: true, message: 'Login successful!', user: foundUser });
+    // currentUser = { username, password};
+    // req.session.user = currentUser;
+    
+    const foundUser = users.find(user => user.username === username);
+
+    if (foundUser) {
+      if (foundUser.password === password) {
+        res.json({ success: true, message: 'Login successful!', user: foundUser });
+      } else {
+        res.json({ success: false, message: 'Incorrect password. Please try again.' });
+      }
+    } else {
+      res.json({ success: false, message: 'User not found. Please sign up.' });
+    }
   } else {
-    res.json({ success: false, message: 'Incorrect username or password.' });
+    res.json({ success: false, message: 'Please enter both username and password.' });
   }
 });
 
 
-
 app.post('/api/redeem', (req, res) => {
   const { code } = req.body;
-
-  const currentUserIndex = users.findIndex(user => user.userId === req.session.userId);
-
-  if (currentUserIndex === -1) {
-    return res.json({ success: false, message: 'No user logged in.' });
-  }
-
-  const currentUser = users[currentUserIndex];
 
   if (!code) {
     return res.json({ success: false, message: 'Please provide a redemption code.' });
@@ -103,11 +100,17 @@ app.post('/api/redeem', (req, res) => {
   const validCodes = ['102956', '347159', '650535'];
 
   if (validCodes.includes(code)) {
-    if (currentUser.redeemedCodes.includes(code)) {
+
+    if (redeemedCodes.includes(code)) {
       return res.json({ success: false, message: 'Code already redeemed.' });
     }
 
     redeemedCodes.push(code);
+
+    if (!currentUser.redeemedCodes) {
+      currentUser.redeemedCodes = [];
+    }
+
     currentUser.points += 10;
     currentUser.redeemedCodes.push(code);
 
@@ -115,7 +118,7 @@ app.post('/api/redeem', (req, res) => {
   } else {
     return res.json({ success: false, message: 'Invalid redemption code.' });
   }
-});x
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
