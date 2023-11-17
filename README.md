@@ -28,7 +28,7 @@ get outside, have fun, and get active!
     - signup
     - login
     - redeeming codes for points
-    - retrieving user points
+    - displaying user points on leaderboard
 - DataBase - Store users and their number of points
 - Login - Register and login users. Credentials securely stored in database. Can't redeem code unless authenticated.
 - WebSocket - As each user redeems codes and earns points, their updated points are reflected on the leaderboards for all 8. other users.
