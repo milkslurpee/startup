@@ -25,6 +25,7 @@ get outside, have fun, and get active!
 - CSS - Application styling with a cool treasure hunting theme. Aesthetically pleasing.
 - JavaScript - Provides signup, login, allows for redemption of codes, and displays each user's points on the leaderboard.
 - Service - Backend service with endpoints for:
+    - signup
     - login
     - redeeming codes for points
     - retrieving user points
