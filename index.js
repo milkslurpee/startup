@@ -17,17 +17,6 @@ app.use(
   })
 );
 
-function authenticateUser(req, res, next) {
-  const user = req.session.user;
-
-  if (user) {
-    req.user = user;
-    next();
-  } else {
-    res.status(401).json({ success: false, message: 'Unauthorized' });
-  }
-}
-
 app.use(express.static('public'));
 
 function generateUserId() {
