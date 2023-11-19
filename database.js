@@ -35,15 +35,6 @@ async function addUser(username, password, userId) {
       throw new Error('Error finding user by username');
     }
   }
-  
-  async function findUserById(userId) {
-    try {
-      return await db.collection('users').findOne({ userId });
-    } catch (error) {
-      console.error('Error finding user by ID:', error);
-      throw new Error('Error finding user by ID');
-    }
-  }
 
   async function updateUserPoints(userId, newPoints) {
     try {
@@ -73,11 +64,10 @@ async function addUser(username, password, userId) {
   }
 
 module.exports = {
-    connect,
+    testConnection,
     addUser,
     findUserByUsername,
-    findUserById,
     updateUserPoints,
     getLeaderboard,
-    addRedeemedCode,
+    addRedeemedCode
   };

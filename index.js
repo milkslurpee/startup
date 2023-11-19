@@ -1,15 +1,12 @@
 const express = require('express');
 const session = require('express-session');
+const database = require('./database.js');
 const app = express();
-const database = require('./database');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 
 app.use(express.json());
-let redeemedCodes = [];
-let users = [];
-
 app.use(
   session({
     secret: 'J$986587muncy',
@@ -24,6 +21,7 @@ app.use(express.static('public'));
 function generateUserId() {
   return '_' + Math.random().toString(36).substr(2, 9);
 }
+
 app.post('/api/signup', async (req, res) => {
   const { username, password, confirmPassword } = req.body;
 
@@ -39,78 +37,85 @@ app.post('/api/signup', async (req, res) => {
       if (existingUser) {
         res.json({ success: false, message: 'Username already exists. Please choose a different one.' });
       } else {
-        const userId = generateUserId(); 
-        const newUser = {
-          userId,
-          username,
-          password,
-          points: 0,
-          redeemedCodes: [],
-        };
-        await database.addUser(username, password, userId);
+        const userId = generateUserId();
+        await database.addUser(username, password, userId); // Adjust based on your addUser function
+
         res.json({ success: true, message: 'Sign up successful! Please log in with your new credentials.' });
       }
     } catch (error) {
-      console.error('Error during signup:', error);
-      res.status(500).json({ success: false, message: 'Error during signup. Please try again.' });
+      console.error('Error signing up:', error);
+      res.status(500).json({ success: false, message: 'Error signing up. Please try again.' });
     }
   } else {
     res.json({ success: false, message: 'Please fill in all the fields.' });
   }
 });
 
-
-app.get('/api/scores', (req, res) => {
-  database.getLeaderboard;
-});
-
-
-app.post('/api/login', (req, res) => {
-  const { username, password } = req.body;
-
-  const foundUser = users.find(user => user.username === username && user.password === password);
-
-  if (foundUser) {
-    req.session.userId = foundUser.userId; 
-    res.json({ success: true, message: 'Login successful!', user: foundUser });
-  } else {
-    res.json({ success: false, message: 'Incorrect username or password.' });
+app.get('/api/scores', async (req, res) => {
+  try {
+    const leaderboard = await database.getLeaderboard();
+    res.json(leaderboard);
+  } catch (error) {
+    console.error('Error getting scores:', error);
+    res.status(500).json({ success: false, message: 'Error getting scores. Please try again.' });
   }
 });
 
 
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
 
-app.post('/api/redeem', (req, res) => {
+  try {
+    const user = await database.findUserByUsername(username);
+
+    if (user && user.password === password) {
+      req.session.userId = user.userId;
+      res.json({ success: true, message: 'Login successful!', user });
+    } else {
+      res.json({ success: false, message: 'Incorrect username or password.' });
+    }
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).json({ success: false, message: 'Error during login. Please try again.' });
+  }
+});
+
+app.post('/api/redeem', async (req, res) => {
   const { code } = req.body;
+  const userId = req.session.userId;
 
-  const currentUserIndex = users.findIndex(user => user.userId === req.session.userId);
-
-  if (currentUserIndex === -1) {
+  if (!userId) {
     return res.json({ success: false, message: 'No user logged in.' });
   }
 
-  const currentUser = users[currentUserIndex];
+  try {
+    const currentUser = await database.findUserById(userId);
 
-  if (!code) {
-    return res.json({ success: false, message: 'Please provide a redemption code.' });
-  }
-
-  const validCodes = ['102956', '347159', '650535'];
-
-  if (validCodes.includes(code)) {
-    if (currentUser.redeemedCodes.includes(code)) {
-      return res.json({ success: false, message: 'Code already redeemed.' });
+    if (!currentUser) {
+      return res.json({ success: false, message: 'User not found.' });
     }
 
-    redeemedCodes.push(code);
-    currentUser.points += 10;
-    currentUser.redeemedCodes.push(code);
+    const validCodes = ['102956', '347159', '650535'];
 
-    return res.json({ success: true, message: 'Points redeemed successfully!', user: currentUser });
-  } else {
-    return res.json({ success: false, message: 'Invalid redemption code.' });
+    if (validCodes.includes(code)) {
+      if (currentUser.redeemedCodes.includes(code)) {
+        return res.json({ success: false, message: 'Code already redeemed.' });
+      }
+
+      await database.updateUserPoints(userId, currentUser.points + 10);
+      await database.addRedeemedCode(userId, code);
+
+      const updatedUser = await database.findUserById(userId);
+      return res.json({ success: true, message: 'Points redeemed successfully!', user: updatedUser });
+    } else {
+      return res.json({ success: false, message: 'Invalid redemption code.' });
+    }
+  } catch (error) {
+    console.error('Error during code redemption:', error);
+    res.status(500).json({ success: false, message: 'Error during code redemption. Please try again.' });
   }
 });
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
