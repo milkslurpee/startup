@@ -1,6 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-const database = require('./database'); // Import your database functions
+const database = require('./database'); 
 const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
