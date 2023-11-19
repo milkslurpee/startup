@@ -56,7 +56,7 @@ async function addUser(username, password, userId) {
   
   async function getLeaderboard() {
     try {
-      return await db.collection('users').find().sort({ points: -1 }).limit(10).toArray();
+      return await db.collection('users').find().sort({ points: -1 }).limit(100).toArray();
     } catch (error) {
       console.error('Error getting leaderboard:', error);
       throw new Error('Error getting leaderboard');
