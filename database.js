@@ -64,7 +64,6 @@ async function addUser(username, password, userId) {
   }
 
 module.exports = {
-    testConnection,
     addUser,
     findUserByUsername,
     updateUserPoints,
