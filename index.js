@@ -3,7 +3,7 @@ const session = require('express-session');
 const database = require('./database.js');
 const app = express();
 
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 3050;
 
 
 app.use(express.json());
