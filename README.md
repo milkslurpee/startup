@@ -74,6 +74,14 @@ For this deliverable I added backend endpoints that receives signup info, login 
 - **Frontend calls to Endpoints** - Yup, done using "fetch".
     
 ---
+
+## Database Deliverable
+For this deliverable I stored the users, user points, and the codes each user has already redeemed in the database.
+- **MongoDB Atlas database created** - done!
+- **Endpoints** - Each endpoint now sends data to MongoDB.
+- **Ok but does it actually work tho** - Yes, yes it does.
+
+---
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
