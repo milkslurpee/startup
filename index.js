@@ -80,6 +80,11 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+app.post('/api/logout', (req, res) => {
+  req.session.destroy();
+  res.json({ success: true, message: 'Logout successful!' });
+});
+
 app.post('/api/redeem', async (req, res) => {
   const { code } = req.body;
   const userId = req.session.userId;

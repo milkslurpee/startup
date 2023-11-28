@@ -3,7 +3,11 @@ function logout() {
         url: "/logout",
         type: "POST",
         success: function (data) {
-            window.location.href = "/";
+            if (data.loggedOut) {
+                window.location.href = "/";
+            } else {
+                alert("No user logged in");
+            }
         },
         error: function (error) {
             console.log(error);
