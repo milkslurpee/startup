@@ -10,7 +10,7 @@ a {
 }
 
 a:hover {
-  color: grey;
+  color: #1b8c9a;
 }
 
 h1 {
@@ -111,6 +111,12 @@ button {
   border-radius: 5px;
 }
 
+button:hover {
+  background-color: #1b8c9a;
+}
+button:active {
+  transform: scale(0.95);
+}
 footer a {
   color: #23aebd;
   text-decoration: none;
