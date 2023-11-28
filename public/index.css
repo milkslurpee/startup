@@ -104,6 +104,10 @@ button:active {
   transform: scale(0.95);
 }
 
+#logoutMessage {
+  display: inline-block;
+}
+
 footer a {
   color: #23aebd;
   text-decoration: none;

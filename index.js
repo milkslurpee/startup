@@ -80,7 +80,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-app.post('/logout', async (req, res) => {
+app.post('/api/logout', async (req, res) => {
   if (req.session.userId) {
       req.session.destroy((err) => {
           if (err) {
