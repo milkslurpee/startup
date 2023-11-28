@@ -84,7 +84,7 @@ app.post('/logout', async (req, res) => {
   if (req.session.userId) {
       req.session.destroy((err) => {
           if (err) {
-              res.status(500).send('Error logging out');
+              res.status(500).json('Error logging out');
           } else {
               res.send({ loggedOut: true });
           }
