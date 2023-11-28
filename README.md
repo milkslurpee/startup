@@ -86,7 +86,7 @@ For this deliverable I stored the users, user points, and the codes each user ha
 ## Login Deliverable
 For this deliverable I didn't actually do much. I had already implemented most of the login backend while doing the service deliverable.
 - **Logout** - I did need to add logout functionality, so I added that.
-- **Stuff I had already added** 
+- **Stuff I already had done** 
   - User registration - stores users in DB
   - Existing users - stores points under same user if user exists
   - MongoDB - stores user credentials, points, and redeemed codes
