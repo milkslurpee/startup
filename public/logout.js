@@ -11,7 +11,7 @@ function logout() {
     })
     .then(data => {
       if (data.loggedOut) {
-        window.location.href = "/";
+        logoutMessage.textContent = "Logged out.";
       } else {
         const logoutMessage = document.getElementById('logoutMessage');
         if (logoutMessage) {
