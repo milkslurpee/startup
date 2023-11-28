@@ -80,9 +80,18 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-app.post('/api/logout', (req, res) => {
-  req.session.destroy();
-  res.json({ success: true, message: 'Logout successful!' });
+app.post('/logout', async (req, res) => {
+  if (req.session.userId) {
+      req.session.destroy((err) => {
+          if (err) {
+              res.status(500).send('Error logging out');
+          } else {
+              res.send({ loggedOut: true });
+          }
+      });
+  } else {
+      res.send({ loggedOut: false });
+  }
 });
 
 app.post('/api/redeem', async (req, res) => {
