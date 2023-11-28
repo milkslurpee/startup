@@ -98,7 +98,6 @@ h4{
 
 footer {
   text-align: center;
-  padding: 2%;
 }
 
 button {
@@ -119,6 +118,10 @@ button:active {
 }
 
 #logoutMessage {
+  display: inline-block;
+}
+
+#redeemMessage {
   display: inline-block;
 }
 

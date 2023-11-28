@@ -81,9 +81,6 @@ main h3 {
   font-weight: 500; 
 }
 
-h4{
-  margin: 2em;
-}
 
 .picture-box {
   position: relative;
@@ -98,7 +95,6 @@ h4{
 
 footer {
   text-align: center;
-  padding: 2%;
 }
 
 button {
@@ -116,6 +112,10 @@ button:hover {
 }
 button:active {
   transform: scale(0.95);
+}
+
+#message {
+  display: inline-block;
 }
 
 footer a {
