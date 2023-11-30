@@ -24,7 +24,7 @@ function login() {
         })
         .catch(error => console.error('Error during login:', error));
     } else {
-        message.textContent = "Please enter both username and password.";
+        message.textContent = "Please fill in all the fields.";
         loginForm.reset();
     }
 }

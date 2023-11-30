@@ -63,6 +63,7 @@ menu z {
 
 main {
   padding-top: 2%; 
+  padding-left: 2%;
   text-align: left;
 }
 
@@ -72,7 +73,7 @@ main h2 {
 }
 
 main h3 {
-  margin: 1em;
+  margin-top: 1em;
   font-weight: 500; 
 }
 
