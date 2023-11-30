@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="centerstreet.css" />
+  <link rel="stylesheet" href="leaderboards.css" />
   <head>
-    <script src="redeem.js"></script>
+    <script src="leaderboards.js"></script>
     <script src="logout.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Center Street hunt</title>
+    <title>Leaderboards</title>
     <link rel="icon" href="plunderin-pirates.ico" />
   </head>
   <body>
@@ -18,10 +18,33 @@
 
       <nav>
         <menu>
-          <h3><a href="index.html">Home</a></h3>
-          <h3><a href="leaderboards.html">Leaderboards</a></h3>
+            <h3><a href="index.html">Home</a></h3>
+            <h3><a href="leaderboards.html">Leaderboard</a></h3>
+            <h2><a href="help.html">Help</a></h2>
         </menu>
       </nav>
 
       <hr />
     </header>
+
+    <main>
+        <p>There isn't much to the website yet. I don't </p>
+    </main>
+
+    <footer>
+      <hr />
+      <button type="button" onclick="logout()">Logout</button>
+      <br />
+      <br />
+      <div id="logoutMessage"></div>
+      <br />
+      <br />
+      <span class="text-reset">Jack Suorsa</span>
+      <br />
+      <a href="https://github.com/milkslurpee/startup.git">GitHub</a>
+    </footer>
+    <script> 
+    window.addEventListener('load', getScores);
+    </script>
+  </body>
+</html>

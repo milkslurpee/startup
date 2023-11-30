@@ -97,7 +97,7 @@ h4{
 
 footer {
   text-align: center;
-  padding: 2%;
+  padding-top: 2%;
 }
 
 button {
@@ -120,6 +120,8 @@ button:active {
 #logoutMessage {
   display: inline-block;
 }
+
+
 
 footer a {
   color: #23aebd;
