@@ -51,14 +51,14 @@ menu h3 {
   font-size: 1.5vw;
 }
 
-#bold {
-  color: #23aebd;
-}
-
 menu a {
   text-decoration: none;
   margin: 1em;
   color: white;
+}
+menu z {
+  margin: 1em;
+  color: #2bd0e2;
 }
 
 main {
