@@ -46,8 +46,13 @@ menu {
 
 menu h3 {
   margin: 0;
-  padding: 1em; 
+  padding: 1.1em; 
   font-weight: 500; 
+  font-size: 1.5vw;
+}
+
+#bold {
+  color: #23aebd;
 }
 
 menu a {
