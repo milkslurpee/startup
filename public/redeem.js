@@ -6,14 +6,7 @@ function redeem() {
     const redeemMessage = document.querySelector("#redeemMessage");
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   
-    const validCodes = [centerStreet, provoCanyon, provoTemple];
-  
-    if (!code) {
-      redeemMessage.textContent = "Please provide a redemption code.";
-      return;
-    }
-  
-    if (validCodes.includes(code)) {
+
       const requestData = {
         code: code,
         user: currentUser,
@@ -29,10 +22,8 @@ function redeem() {
         .then(response => response.json())
         .then(data => handleRedemptionResponse(data, redeemMessage))
         .catch(error => console.error('Error sending redemption request:', error));
-    } else {
-      redeemMessage.textContent = "Invalid redemption code.";
     }
-  }
+
   
   function handleRedemptionResponse(responseData, redeemMessage) {
     if (responseData.success) {

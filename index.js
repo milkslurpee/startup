@@ -95,7 +95,7 @@ app.post('/api/logout', async (req, res) => {
 });
 
 app.post('/api/redeem', async (req, res) => {
-  const { code } = req.body;
+  const code = req.body;
   const userId = req.session.userId;
 
   if (!userId) {
