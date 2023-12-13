@@ -1,12 +1,19 @@
-function getScores() {
-  fetch('/api/scores')
-    .then(response => response.json())
-    .then(scores => updateLeaderboard(scores))
-    .catch(error => console.error('Error fetching scores:', error));
-}
+const socket = new WebSocket('ws://localhost:4000');
+
+// Listen for WebSocket open event
+socket.addEventListener('open', (event) => {
+  console.log('WebSocket connection established');
+});
+
+// Listen for WebSocket incoming messages
+socket.addEventListener('message', (event) => {
+  const data = JSON.parse(event.data);
+  if (data.type === 'leaderboardUpdate') {
+    updateLeaderboard(data.data); // Call the update function when 'leaderboardUpdate' event is received
+  }
+});
 
 function updateLeaderboard(scores) {
-
   scores.sort((a, b) => b.points - a.points);
 
   const leaderboardTable = document.querySelector('tbody');
@@ -27,5 +34,9 @@ function updateLeaderboard(scores) {
     row.appendChild(pointsCell);
 
     leaderboardTable.appendChild(row);
+  });
+
+  socket.addEventListener('leaderboardUpdate', (event) => {
+    updateLeaderboard(event.data);
   });
 }

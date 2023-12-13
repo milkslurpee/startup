@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const database = require('./database.js');
+const { peerProxy } = require('./peerProxy.js');
 const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -51,15 +52,15 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-app.get('/api/scores', async (req, res) => {
-  try {
-    const leaderboard = await database.getLeaderboard();
-    res.json(leaderboard);
-  } catch (error) {
-    console.error('Error getting scores:', error);
-    res.status(500).json({ success: false, message: 'Error getting scores. Please try again.' });
-  }
-});
+// app.get('/api/scores', async (req, res) => {
+//   try {
+//     const leaderboard = await database.getLeaderboard();
+//     res.json(leaderboard);
+//   } catch (error) {
+//     console.error('Error getting scores:', error);
+//     res.status(500).json({ success: false, message: 'Error getting scores. Please try again.' });
+//   }
+// });
 
 
 app.post('/api/login', async (req, res) => {
@@ -95,7 +96,7 @@ app.post('/api/logout', async (req, res) => {
 });
 
 app.post('/api/redeem', async (req, res) => {
-  const code = req.body;
+  const { code } = req.body;
   const userId = req.session.userId;
 
   if (!userId) {
@@ -119,6 +120,12 @@ app.post('/api/redeem', async (req, res) => {
       await database.updateUserPoints(userId, currentUser.points + 10);
       await database.addRedeemedCode(userId, code);
 
+      const leaderboard = await database.getLeaderboard();
+
+      wss.clients.forEach((client) => {
+        client.send(JSON.stringify({ type: 'leaderboardUpdate', data: leaderboard }));
+      });
+
       const updatedUser = await database.findUserById(userId);
       return res.json({ success: true, message: 'Points redeemed successfully!', user: updatedUser });
     } else {
@@ -136,6 +143,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
-app.listen(port, () => {
+const httpservice = app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+peerProxy(httpservice);
