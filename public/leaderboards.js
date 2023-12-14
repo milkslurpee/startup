@@ -1,6 +1,3 @@
-const socket = new WebSocket('ws://localhost:4000');
-
-// Listen for WebSocket open event
 socket.addEventListener('open', (event) => {
   console.log('WebSocket connection established');
 });
@@ -34,9 +31,5 @@ function updateLeaderboard(scores) {
     row.appendChild(pointsCell);
 
     leaderboardTable.appendChild(row);
-  });
-
-  socket.addEventListener('leaderboardUpdate', (event) => {
-    updateLeaderboard(event.data);
   });
 }

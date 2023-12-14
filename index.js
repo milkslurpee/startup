@@ -120,7 +120,7 @@ app.post('/api/redeem', async (req, res) => {
       await database.updateUserPoints(userId, currentUser.points + 10);
       await database.addRedeemedCode(userId, code);
 
-      const leaderboard = await database.getLeaderboard();
+      const leaderboard = await database.getScores();
 
       wss.clients.forEach((client) => {
         client.send(JSON.stringify({ type: 'leaderboardUpdate', data: leaderboard }));

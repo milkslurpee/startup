@@ -1,5 +1,6 @@
 const { WebSocketServer } = require('ws');
 const uuid = require('uuid');
+const database = require('./database.js');
 
 function peerProxy(httpServer) {
   // Create a websocket object
@@ -15,9 +16,16 @@ function peerProxy(httpServer) {
   // Keep track of all the connections so we can forward messages
   let connections = [];
 
-  wss.on('connection', (ws) => {
+  wss.on('connection', async (ws) => {
     const connection = { id: uuid.v4(), alive: true, ws: ws };
     connections.push(connection);
+
+    try {
+        const leaderboard = await database.getLeaderboard();
+        ws.send(JSON.stringify({ type: 'leaderboardUpdate', data: leaderboard }));
+      } catch (error) {
+        console.error('Error sending initial leaderboard data:', error);
+      }
 
     // Forward messages to everyone except the sender
     ws.on('message', function message(data) {
