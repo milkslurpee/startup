@@ -6,7 +6,7 @@ function redeem() {
     const redeemMessage = document.querySelector("#redeemMessage");
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   
-    const validCodes = [centerStreet, provoCanyon, provoTemple];
+    const validCodes = [centerStreet, provoCanyon, provoTemple, '1', '2', '3', '4', '5', '6'];
   
     if (!code) {
       redeemMessage.textContent = "Please provide a redemption code.";

@@ -6,6 +6,12 @@ const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
+const httpservice = app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+const wss = peerProxy(httpservice);
+
 
 app.use(express.json());
 app.use(
@@ -40,6 +46,8 @@ app.post('/api/signup', async (req, res) => {
       } else {
         const userId = generateUserId();
         await database.addUser(username, password, userId); // Adjust based on your addUser function
+
+        await wss.sendLeaderboardUpdateToClients();
 
         res.json({ success: true, message: 'Sign up successful! Please log in with your new credentials.' });
       }
@@ -103,14 +111,13 @@ app.post('/api/redeem', async (req, res) => {
     return res.json({ success: false, message: 'No user logged in.' });
   }
 
-  try {
     const currentUser = await database.findUserById(userId);
 
     if (!currentUser) {
       return res.json({ success: false, message: 'User not found.' });
     }
 
-    const validCodes = ['102956', '347159', '650535'];
+    const validCodes = ['102956', '347159', '650535','1', '2', '3', '4', '5', '6'];
 
     if (validCodes.includes(code)) {
       if (currentUser.redeemedCodes.includes(code)) {
@@ -118,23 +125,17 @@ app.post('/api/redeem', async (req, res) => {
       }
 
       await database.updateUserPoints(userId, currentUser.points + 10);
+
       await database.addRedeemedCode(userId, code);
 
-      const leaderboard = await database.getScores();
-
-      wss.clients.forEach((client) => {
-        client.send(JSON.stringify({ type: 'leaderboardUpdate', data: leaderboard }));
-      });
+      await wss.sendLeaderboardUpdateToClients();
 
       const updatedUser = await database.findUserById(userId);
       return res.json({ success: true, message: 'Points redeemed successfully!', user: updatedUser });
     } else {
       return res.json({ success: false, message: 'Invalid redemption code.' });
     }
-  } catch (error) {
-    console.error('Error during code redemption:', error);
-    res.status(500).json({ success: false, message: 'Error during code redemption. Please try again.' });
-  }
+    
 });
 
 
@@ -142,9 +143,3 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
-
-const httpservice = app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
-peerProxy(httpservice);
