@@ -1,3 +1,24 @@
+let socket;
+const isLocal = window.location.hostname === 'localhost'; // Check if the environment is local
+
+if (isLocal) {
+  const port = 4000; // Update this with your local WebSocket server port
+  socket = new WebSocket(`ws://localhost:${port}`);
+} else {  
+  socket = new WebSocket(`wss://startup.piratesoftheculdesac.click`);
+}
+
+socket.addEventListener('open', (event) => {
+console.log('WebSocket connection established');
+});
+
+socket.addEventListener('message', (event) => {
+const data = JSON.parse(event.data);
+if (data.type === 'leaderboardUpdate') {
+updateLeaderboard(data.data); 
+}
+});
+
 socket.addEventListener('open', (event) => {
   console.log('WebSocket connection established');
 });

@@ -53,19 +53,6 @@
       <br />
       <a href="https://github.com/milkslurpee/startup.git">GitHub</a>
     </footer>
-    <script> 
-        const socket = new WebSocket('ws://localhost:4000');
 
-        socket.addEventListener('open', (event) => {
-        console.log('WebSocket connection established');
-        });
-
-        socket.addEventListener('message', (event) => {
-        const data = JSON.parse(event.data);
-        if (data.type === 'leaderboardUpdate') {
-        updateLeaderboard(data.data); 
-        }
-        });
-    </script>
   </body>
 </html>
