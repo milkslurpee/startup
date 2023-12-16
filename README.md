@@ -93,6 +93,15 @@ For this deliverable I didn't actually do much. I had already implemented most o
   - Restrict functionality - You cannot redeem codes unless you are logged in
 
 ---
+
+## Websocket Deliverable
+For this deliverable I used a webSocket to update the leaderboard in realtime.
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - The leaderboard updates in realtime. Pretty neat!
+  
+---
 ## Design Images
 ![](Pics/signup.png)
 ![](Pics/Login.png)
